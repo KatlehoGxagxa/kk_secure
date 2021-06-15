@@ -1,25 +1,13 @@
-from app.quadratic_equation.input import QuadraticEquationModel
+from app.db_models.models import userModel
+from sqlalchemy.orm import session
+from app.db_models import Session
+from app.db_models.users import User
 import math
 
-class QuadraticEquation:
+class get_details():
     
-    def __init__(self, inputs: QuadraticEquationModel):
+    def __init__(self, inputs: userModel):
         self.__inputs = inputs
+        self.session = Session()
 
-    def quadratic_equation(self):
-        value = math.pow(self.__inputs.b,2)-4*self.__inputs.a*self.__inputs.c
 
-        if value < 0:
-            return "No Real Solution"
-
-        q = 2*self.__inputs.a
-
-        if q == 0:
-            return "Undefined Expression"
-
-        delta = math.sqrt(value)
-        
-        x1 = (-self.__inputs.b + delta)/q
-        x2 = (-self.__inputs.b - delta)/q
-
-        return x1, x2
