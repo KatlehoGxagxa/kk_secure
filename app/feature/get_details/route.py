@@ -2,10 +2,12 @@ import json, logging
 from fastapi import APIRouter, Depends
 
 # Importing input_models, that will be used route paramaters
-from app.quadratic_equation.input import QuadraticEquationModel
+from app.db_models.models import organisationsModel
+from app.db_models.models import accountsModel
+from app.db_models.models import usersModel
 
 # Import the service for the route
-from app.quadratic_equation.service import QuadraticEquation
+from app.feature.get_details.service import get_details
 
 router = APIRouter()
 
